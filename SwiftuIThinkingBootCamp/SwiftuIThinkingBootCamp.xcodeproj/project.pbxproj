@@ -15,6 +15,7 @@
 		4FD4BDB02D54AED60058D54E /* StateBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BDAF2D54AED60058D54E /* StateBootcamp.swift */; };
 		4FD4BDB22D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BDB12D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift */; };
 		4FD4BDB42D54BB2B0058D54E /* ExtractSubviewsBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BDB32D54BB2B0058D54E /* ExtractSubviewsBootcamp.swift */; };
+		4FD4BDB62D54BF360058D54E /* ViewModelBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BDB52D54BF360058D54E /* ViewModelBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		4FD4BDAF2D54AED60058D54E /* StateBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateBootcamp.swift; sourceTree = "<group>"; };
 		4FD4BDB12D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractingFunctionsBootcamp.swift; sourceTree = "<group>"; };
 		4FD4BDB32D54BB2B0058D54E /* ExtractSubviewsBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractSubviewsBootcamp.swift; sourceTree = "<group>"; };
+		4FD4BDB52D54BF360058D54E /* ViewModelBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				4FD4BDB12D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift */,
 				4FD4BDB32D54BB2B0058D54E /* ExtractSubviewsBootcamp.swift */,
 				4FD4BDAD2D54A94E0058D54E /* BindingBootcamp.swift */,
+				4FD4BDB52D54BF360058D54E /* ViewModelBootcamp.swift */,
 				4FD4BDA12D54A3830058D54E /* Assets.xcassets */,
 				4FD4BDA32D54A3830058D54E /* Preview Content */,
 			);
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD4BDB62D54BF360058D54E /* ViewModelBootcamp.swift in Sources */,
 				4FD4BDB22D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift in Sources */,
 				4FD4BDB02D54AED60058D54E /* StateBootcamp.swift in Sources */,
 				4FD4BDAE2D54A94E0058D54E /* BindingBootcamp.swift in Sources */,
