@@ -13,6 +13,7 @@
 		4FD4BDA52D54A3830058D54E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FD4BDA42D54A3830058D54E /* Preview Assets.xcassets */; };
 		4FD4BDAE2D54A94E0058D54E /* BindingBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BDAD2D54A94E0058D54E /* BindingBootcamp.swift */; };
 		4FD4BDB02D54AED60058D54E /* StateBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BDAF2D54AED60058D54E /* StateBootcamp.swift */; };
+		4FD4BDB22D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BDB12D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4FD4BDA42D54A3830058D54E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4FD4BDAD2D54A94E0058D54E /* BindingBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingBootcamp.swift; sourceTree = "<group>"; };
 		4FD4BDAF2D54AED60058D54E /* StateBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateBootcamp.swift; sourceTree = "<group>"; };
+		4FD4BDB12D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractingFunctionsBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				4FD4BD9D2D54A3810058D54E /* SwiftuIThinkingBootCampApp.swift */,
 				4FD4BD9F2D54A3810058D54E /* ContentView.swift */,
 				4FD4BDAF2D54AED60058D54E /* StateBootcamp.swift */,
+				4FD4BDB12D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift */,
 				4FD4BDAD2D54A94E0058D54E /* BindingBootcamp.swift */,
 				4FD4BDA12D54A3830058D54E /* Assets.xcassets */,
 				4FD4BDA32D54A3830058D54E /* Preview Content */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD4BDB22D54B7D20058D54E /* ExtractingFunctionsBootcamp.swift in Sources */,
 				4FD4BDB02D54AED60058D54E /* StateBootcamp.swift in Sources */,
 				4FD4BDAE2D54A94E0058D54E /* BindingBootcamp.swift in Sources */,
 				4FD4BDA02D54A3810058D54E /* ContentView.swift in Sources */,
