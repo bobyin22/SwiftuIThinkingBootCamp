@@ -18,6 +18,11 @@ class FruitViewModel: ObservableObject {
     @Published var fruitArray: [FruitModel] = []
     @Published var isLoading: Bool = false
     
+    // 一開始就拿資料，替代原本onAppear取資料
+    init() {
+        getFruits()
+    }
+    
     func getFruits() {
         let fruit1 = FruitModel(name: "Orange", count: 1)
         let fruit2 = FruitModel(name: "Banana", count: 2)
@@ -39,13 +44,14 @@ class FruitViewModel: ObservableObject {
 }
 
 struct ViewModelBootcamp: View {
-    
+   
+   // @StateObject -> USE THIS ON CREATION / INIT
+   // @ObservedObject -> USE THIS FOR SUBVIEW
    @ObservedObject var fruitViewModel: FruitViewModel = FruitViewModel()
     
     var body: some View {
         NavigationView {
             List {
-                
                 if fruitViewModel.isLoading {
                     ProgressView()
                 } else {
@@ -63,8 +69,33 @@ struct ViewModelBootcamp: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Fruit List")
-            .onAppear{
-                fruitViewModel.getFruits()
+            .navigationBarItems(trailing:
+                                    NavigationLink(
+                                        destination: RandomScrenn(fruitViewModel: fruitViewModel),
+                                        label: {
+                                            Image(systemName: "arrow.right")
+                                                        .font(.title)
+                                        })
+            )
+        }
+    }
+}
+
+struct RandomScrenn: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var fruitViewModel: FruitViewModel
+    
+    var body: some View {
+        ZStack {
+            Color.green.ignoresSafeArea()
+            
+            VStack {
+                ForEach(fruitViewModel.fruitArray) { fruit in
+                    Text(fruit.name)
+                        .foregroundColor(.white)
+                        .font(.headline)
+                }
             }
         }
     }
