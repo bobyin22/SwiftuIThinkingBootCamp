@@ -16,15 +16,20 @@ struct FruitModel: Identifiable {
 class FruitViewModel: ObservableObject {
     
     @Published var fruitArray: [FruitModel] = []
+    @Published var isLoading: Bool = false
     
     func getFruits() {
         let fruit1 = FruitModel(name: "Orange", count: 1)
         let fruit2 = FruitModel(name: "Banana", count: 2)
         let fruit3 = FruitModel(name: "Watermelon", count: 88)
-        
-        fruitArray.append(fruit1)
-        fruitArray.append(fruit2)
-        fruitArray.append(fruit3)
+
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.fruitArray.append(fruit1)
+            self.fruitArray.append(fruit2)
+            self.fruitArray.append(fruit3)
+            self.isLoading = false
+        }
     }
     
     func deleteFruit(index: IndexSet) {
@@ -40,16 +45,21 @@ struct ViewModelBootcamp: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(fruitViewModel.fruitArray) { fruit in
-                    HStack {
-                        Text("\(fruit.count)")
-                            .foregroundColor(.red)
-                        Text(fruit.name)
-                            .font(.headline)
-                            .bold()
+                
+                if fruitViewModel.isLoading {
+                    ProgressView()
+                } else {
+                    ForEach(fruitViewModel.fruitArray) { fruit in
+                        HStack {
+                            Text("\(fruit.count)")
+                                .foregroundColor(.red)
+                            Text(fruit.name)
+                                .font(.headline)
+                                .bold()
+                        }
                     }
+                    .onDelete(perform: fruitViewModel.deleteFruit)
                 }
-                .onDelete(perform: fruitViewModel.deleteFruit)
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Fruit List")
