@@ -11,7 +11,7 @@ import SwiftUI
 // StateObject
 // EnviromentObject (有點像是StateObject)
 
-class EnvironmentViewMode: ObservableObject {
+class EnvironmentViewModel: ObservableObject {
     
     @Published var dataArray: [String] = []
     
@@ -25,19 +25,20 @@ class EnvironmentViewMode: ObservableObject {
     
 }
 
+// MARK: VC1
 struct EnvironmentObjectBootcamp: View {
     
-    @StateObject var viewModel: EnvironmentViewMode = EnvironmentViewMode()
+    @StateObject var viewModel: EnvironmentViewModel = EnvironmentViewModel()
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.dataArray, id: \.self) { item in
                     NavigationLink(
-                        destination: DetailView(selectedItem: item),
-                                   label: {
-                                       Text(item)
-                                   })
+                        destination: DetailView(selectedItem: item, viewModel: viewModel),
+                        label: {
+                            Text(item)
+                        })
                 }
             }
             .navigationTitle("iOS Devices")
@@ -45,9 +46,11 @@ struct EnvironmentObjectBootcamp: View {
     }
 }
 
+// MARK: VC2
 struct DetailView: View {
     
     let selectedItem: String
+    @ObservedObject var viewModel: EnvironmentViewModel
     
     var body: some View {
         ZStack {
@@ -55,20 +58,26 @@ struct DetailView: View {
             Color.orange.ignoresSafeArea()
             
             //foreground
-            NavigationLink(destination: FinalVIew(), label: {
-                Text(selectedItem)
-                    .font(.headline)
-                    .foregroundColor(Color.orange)
-                    .padding()
-                    .padding(.horizontal)
-                    .background(Color.white)
-                    .cornerRadius(30)
-            })
+            NavigationLink(
+                destination: FinalVIew(viewModel: viewModel),
+                label: {
+                    Text(selectedItem)
+                        .font(.headline)
+                        .foregroundColor(Color.orange)
+                        .padding()
+                        .padding(.horizontal)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                })
         }
     }
 }
 
+// MARK: VC3
 struct FinalVIew: View {
+    
+    @ObservedObject var viewModel: EnvironmentViewModel
+    
     var body: some View {
         ZStack{
             // background
@@ -81,9 +90,9 @@ struct FinalVIew: View {
             // foreground
             ScrollView {
                 VStack(spacing: 20) {
-                    Text("Item1")
-                    Text("Item2")
-                    Text("Item3")
+                    ForEach(viewModel.dataArray, id: \.self) { item in
+                        Text(item)
+                    }
                 }
                 .foregroundColor(.white)
                 .font(.largeTitle)
