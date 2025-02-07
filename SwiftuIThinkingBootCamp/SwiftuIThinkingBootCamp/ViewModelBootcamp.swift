@@ -13,32 +13,9 @@ struct FruitModel: Identifiable {
     let count: Int
 }
 
-struct ViewModelBootcamp: View {
+class FruitViewModel: ObservableObject {
     
-    @State var fruitArray: [FruitModel] = [
-        FruitModel(name: "Apples", count: 5)
-    ]
-    
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(fruitArray) { fruit in
-                    HStack {
-                        Text("\(fruit.count)")
-                            .foregroundColor(.red)
-                        Text(fruit.name)
-                            .font(.headline)
-                            .bold()
-                    }
-                }
-            }
-            .listStyle(GroupedListStyle())
-            .navigationTitle("Fruit List")
-            .onAppear{
-                getFruits()
-            }
-        }
-    }
+    @Published var fruitArray: [FruitModel] = []
     
     func getFruits() {
         let fruit1 = FruitModel(name: "Orange", count: 1)
@@ -48,6 +25,38 @@ struct ViewModelBootcamp: View {
         fruitArray.append(fruit1)
         fruitArray.append(fruit2)
         fruitArray.append(fruit3)
+    }
+    
+    func deleteFruit(index: IndexSet) {
+        fruitArray.remove(atOffsets: index)
+    }
+    
+}
+
+struct ViewModelBootcamp: View {
+    
+   @ObservedObject var fruitViewModel: FruitViewModel = FruitViewModel()
+    
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(fruitViewModel.fruitArray) { fruit in
+                    HStack {
+                        Text("\(fruit.count)")
+                            .foregroundColor(.red)
+                        Text(fruit.name)
+                            .font(.headline)
+                            .bold()
+                    }
+                }
+                .onDelete(perform: fruitViewModel.deleteFruit)
+            }
+            .listStyle(GroupedListStyle())
+            .navigationTitle("Fruit List")
+            .onAppear{
+                fruitViewModel.getFruits()
+            }
+        }
     }
 }
 
